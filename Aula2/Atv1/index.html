@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h2 class="center_title">Paridade de Número</h2>
+	<h3 class="center_title">Atividade 1</h3>
+	<br>
+	<form>
+		<button id="button">Calcule</button>
+		<br>
+		<input id="input_1">
+	</form>
+</body>
+
+<script type="text/javascript">
+	var a;
+
+	const input1 = document.getElementById("input_1");
+	const button = document.getElementById("button");
+
+	button.onclick = function() {
+		a = parseInt(input1.value);
+		
+		if (a >= 0) {
+			if ((a % 2) == 0) {
+				alert("Número par");
+			} else {
+				alert("Número ímpar");
+			}
+		} else {
+			alert("Este número não é positivo.");
+		}
+	}
+</script>

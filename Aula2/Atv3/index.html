@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h2 class="center_title">Cálculo de Aprovação</h2>
+	<h3 class="center_title">Atividade 3</h3>
+	<br>
+	<form>
+		Nota 1 
+		<input id="input_1">
+		Nota 2
+		<input id="input_2">
+		Nota 3
+		<input id="input_3">
+		<br>
+		<button id="button" type="button">Decida</button>
+	</form>
+	<p id="result"></p>
+</body>
+
+<script type="text/javascript">
+	var a;
+
+	const input1 = document.getElementById("input_1");
+	const input2 = document.getElementById("input_2");
+	const input3 = document.getElementById("input_3");
+	const result = document.getElementById("result");
+	const button = document.getElementById("button");
+
+	button.onclick = function() {
+		var n1 = parseInt(input1.value);
+		var n2 = parseInt(input2.value);
+		var n3 = parseInt(input3.value);
+		var average = (n1+n2+n3)/3;
+
+		if (average >= 7) {
+			result.innerText = "Aprovado";
+		} else if (average < 5) {
+			result.innerText = "Reprovado";
+		} else {
+			result.innerText = "Recuperação";
+		}
+
+	}
+</script>

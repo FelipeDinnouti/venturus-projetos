@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<div style="width: 100vw;" class="center">
+	<button id="button">Calcule</button>
+	<br>
+	<input id="input_1">
+	<input id="input_2">
+</div>
+
+<script type="text/javascript">
+	let a;
+	let b;
+
+	const input1 = document.getElementById("input_1");
+	const input2 = document.getElementById("input_2");
+	const button = document.getElementById("button");
+
+	button.onclick = function() {
+		a = parseInt(input1.value);
+		b = parseInt(input2.value);
+
+		document.write(((a+b)/2));
+	}
+</script>

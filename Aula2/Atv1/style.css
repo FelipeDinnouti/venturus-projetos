@@ -1,0 +1,13 @@
+.center_title {
+	text-align: center;
+}
+
+form input {
+	display: block;
+	margin: 10px auto 10px auto;
+}
+form button {
+	text-align: center;
+	display: block;
+	margin: 10px auto 10px auto;
+}
