@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h2 class="center_title">Cálculo de IMC</h2>
+	<h3 class="center_title">Atividade 5</h3>
+	<br>
+	<form>
+		Massa
+		<input id="input_1">
+		Altura
+		<input id="input_2">
+		<br>
+		<button id="button" type="button">Calcule</button>
+	</form>
+	<p id="result"></p>
+</body>
+
+<script type="text/javascript">
+	var a;
+
+	const input1 = document.getElementById("input_1");
+	const input2 = document.getElementById("input_2");
+	const button = document.getElementById("button");
+	const result = document.getElementById("result");
+
+	button.onclick = function() {
+		mass = parseFloat(input1.value);
+		height = parseFloat(input2.value);
+		rating = mass/(height*height);
+		
+		template = `IMC: ${Math.trunc(rating)}`
+
+		if (rating >= 40) {
+			result.innerText = template + "\nClassificação:\nObesidade grau III";
+		} else if ((rating >= 35) && (rating < 40)) {
+			result.innerText = template + "\nClassificação:\nObesidade grau II";
+		} else if ((rating >= 30) && (rating < 35)) {
+			result.innerText = template + "\nClassificação:\nObesidade grau I";
+		} else if ((rating >= 25) && (rating < 30)) {
+			result.innerText = template + "\nClassificação:\nSobrepeso";
+		} else if ((rating >= 18.5) && (rating < 25)) {
+			result.innerText = template + "\nClassificação:\nSaudável";
+		} else if ((rating >= 17) && (rating < 18.5)) {
+			result.innerText = template + "\nClassificação:\nMagreza leve";
+		} else if ((rating >= 16) && (rating < 17)) {
+			result.innerText = template + "\nClassificação:\nMagreza moderada";
+		} else if (rating < 16) {
+			result.innerText = template + "\nClassificação:\nMagreza grave";
+		}
+	}	 
+</script>

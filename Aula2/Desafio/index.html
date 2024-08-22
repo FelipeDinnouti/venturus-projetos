@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h2 class="center_title">Decisão de Financiamento</h2>
+	<h3 class="center_title">Atividade 2</h3>
+	<br>
+	<form>
+		Salário
+		<input id="input_1">
+		Financiamento
+		<input id="input_2">
+		<br>
+		<button id="button">Decida</button>
+
+	</form>
+</body>
+
+<script type="text/javascript">
+	var a;
+
+	const input1 = document.getElementById("input_1");
+	const input2 = document.getElementById("input_2");
+	const button = document.getElementById("button");
+
+	button.onclick = function() {
+		salary = parseInt(input1.value);
+		financing = parseInt(input2.value);
+
+		if (financing <= (salary*5)) {
+			alert("Financiamento Concedido.");
+		} else {
+			alert("Financiamento Negado.");
+		}
+		alert("Obrigado por nos consultar.")
+	}
+</script>
