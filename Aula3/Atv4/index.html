@@ -1,0 +1,37 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Quadrante</h2>
+    <h3 class="center_title">Atividade 3</h3>
+</body>
+
+<script type="text/javascript">
+    var a;
+    var p = [0, 0, 0];
+
+    do {
+        const n = +prompt(
+            "Escolha uma opção:\n1.ProdutoA\n2.ProdutoB\n3.ProdutoC\n4.Fim",
+        );
+
+        switch (n) {
+            case 1:
+                p[0]++;
+                break;
+            case 2:
+                p[1]++;
+                break;
+            case 3:
+                p[2]++;
+                break;
+            case 4:
+                alert(
+                    `1.ProdutoA:${p[0]}\n2.ProdutoB:${p[1]}\n3.ProdutoC:${p[2]}`,
+                );
+                break;
+        }
+    } while (true);
+</script>

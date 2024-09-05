@@ -1,0 +1,24 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Senha</h2>
+    <h3 class="center_title">Atividade 2</h3>
+</body>
+
+<script type="text/javascript">
+    var stop = false;
+    var senha_correta = "2023";
+
+    do {
+        var senha = prompt("Insira a Senha: ");
+        if (senha == senha_correta) {
+            alert("Acesso Permitido.");
+            break;
+        } else {
+            alert("Acesso Negado.");
+        }
+    } while (stop == false);
+</script>

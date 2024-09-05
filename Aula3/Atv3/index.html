@@ -1,0 +1,33 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Quadrante</h2>
+    <h3 class="center_title">Atividade 3</h3>
+</body>
+
+<script type="text/javascript">
+    var a;
+
+    do {
+        const x = prompt("X");
+        const y = prompt("Y");
+
+        if (x == "NULA" || y == "NULA") {
+            alert("fim");
+            break;
+        }
+
+        if (x < 0 && y < 0) {
+            alert("Quadrante 3");
+        } else if (x > 0 && y < 0) {
+            alert("Quadrante 4");
+        } else if (x > 0 && y > 0) {
+            alert("Quadrante 1");
+        } else if (x < 0 && y > 0) {
+            alert("Quadrante 2");
+        }
+    } while (true);
+</script>
