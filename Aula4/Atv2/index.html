@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Fatorial</h2>
-    <h3 class="center_title">Atividade 2</h3>
+    <h2 class="center_title">Fibonacci</h2>
+    <h3 class="center_title">Atividade 3</h3>
     <br />
     <form>
         Número
@@ -28,22 +28,20 @@
 
     function fact(n) {
         console.log("Computing: " + n)
-        if (n==0) {
-            return 1
-        }
-
+        
         if (memTable[n] != undefined) {
             console.log("memReturn: " + memTable[n])
             return memTable[n]
         }
-        let v = n*fact(n-1)
+
+        if (n<=2) {
+            return 1
+        }
+
+        let v = fact(n-1)+fact(n-2)
         memTable[n] = v
         console.log("Return: " + v)
         return v
-    }
-
-    function ofact(n) {
-        return n*fact(n-1)
     }
 
     button.onclick = function () {

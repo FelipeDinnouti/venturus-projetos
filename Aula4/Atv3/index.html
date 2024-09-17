@@ -1,0 +1,35 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Tabuada</h2>
+    <h3 class="center_title">Atividade 4</h3>
+    <br />
+    <form>
+        Número
+        <input id="input_1" />
+
+        <br />
+        <button id="button" type="button">Calcule</button>
+    </form>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+       var a;
+
+const input1 = document.getElementById("input_1");
+const button = document.getElementById("button");
+const result = document.getElementById("result");
+
+button.onclick = function () {
+    n = parseInt(input1.value);
+    let t = ""
+    for (var i = 1; i<=10; i++) {
+        t = t+`${n} x ${i} = ${n*i}\n`
+    }
+    result.innerText = t;
+};
+</script>

@@ -1,0 +1,58 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Crescente</h2>
+    <h3 class="center_title">Atividade 5</h3>
+    <br/>
+
+    <form>
+        Número 1
+        <input id="input_1" />
+        Número 2
+        <input id="input_2" />
+        Número 3
+        <input id="input_3" />
+
+        <br />
+        <button id="button" type="button">Calcule</button>
+    </form>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+       var a;
+
+const input1 = document.getElementById("input_1");
+const input2 = document.getElementById("input_2");
+const input3 = document.getElementById("input_3");
+
+const button = document.getElementById("button");
+const result = document.getElementById("result");
+
+function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let key = arr[i];
+        let j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+    return arr
+}
+
+button.onclick = function () {
+    a = parseInt(input1.value);
+    b = parseInt(input2.value);
+    c = parseInt(input3.value);
+    let v = [a,b,c]
+    v = insertionSort(v)
+
+    result.innerText = v.toString();
+};
+</script>
