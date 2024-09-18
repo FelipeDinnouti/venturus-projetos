@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Exemplos</h2>
-    <h3 class="center_title">Selection Sort</h3>
+    <h2 class="center_title">Megasena</h2>
+    <h3 class="center_title">Atividade 3</h3>
     <br />
   
     <p id="result"></p>
@@ -36,11 +36,11 @@
     }
 
     const n = 10
-    const v = [5,4,3,2,1]
+    const v = []
 
     for (let i = 0; i<n;i++) {
-      v[i] = rand(50)
+      v[i] = rand(99)
     }
 
-    result.innerText = selectionSort(v).toString();
+    result.innerText = `Números da Mega Sena: \n` + selectionSort(v).toString();
 </script>

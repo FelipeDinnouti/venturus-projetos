@@ -1,0 +1,47 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Randômico</h2>
+    <h3 class="center_title">Atividade 2</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    let t = ""
+    function rand(range) {
+        return Math.floor(Math.random()*range);
+    }
+
+    let n = 50;
+    const numbers = []
+
+    for (let i = 0; i<n; i++) {
+        numbers[i] = rand(100)
+    }
+    
+    let lowest = 0 
+    let highest = 0
+    let sum = 0
+
+    for (let i = 0; i<n; i++) {
+        let v = numbers[i]
+        sum += v
+
+        if (i==0) {
+            lowest = v
+            highest = lowest
+        }
+        if (lowest>v) {
+            lowest = v
+        }
+        if (highest<v) {
+            highest = v
+        }
+    }
+    t = `Menor: ${lowest}\nMaior: ${highest}\nMédia: ${sum/n}`
+    result.innerText = t;
+</script>

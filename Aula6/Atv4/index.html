@@ -1,0 +1,62 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Levantamento sobre Produtos</h2>
+    <h3 class="center_title">Atividade 4</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    function sum(arr) {
+        let sum = 0;
+        for (let i = 0; i<arr.length; i++) {
+            sum += arr[i]   
+        }
+        return sum
+    }
+
+    let t = ""
+
+    const n = 5
+    
+    const names = []
+    const buy_price = []
+    const sell_price = []
+    const profit = []
+    const profit_percentage = []
+
+    for (let i = 0; i<n;i++) {
+        names[i] = prompt("Nome da mercadoria: ")
+        buy_price[i] = +prompt("Preço de compra: ")
+        sell_price[i] = +prompt("Preço de venda: ")
+        profit[i] = sell_price[i]-buy_price[i];
+        profit_percentage[i] = profit[i]/buy_price[i]
+    }
+
+    let p10 = 0// Lesser
+    let p10_20 = 0
+    let p20 = 0// Greater
+
+    for (let i=0;i<n;i++) {
+        if (profit_percentage[i]<0.10) {
+            p10++
+        } else if (profit_percentage[i]>=0.10 && profit_percentage[i]<0.20) {
+            p10_20++
+        } else if (profit_percentage[i] >= 0.20) {
+            p20++
+        }
+    }
+
+    for (let i = 0; i<n; i++) {
+        t += `Mercadoria: ${names[i]}\n  Preço de venda: R$${sell_price[i]}\n  Preço de compra: R$${buy_price[i]}\n  Lucro: R$${profit[i]} (${profit_percentage[i]*100}%)\n\n`
+    }
+
+    t += `\nLucro menor que 10%: ${p10}\nLucro entre 10% e 20%: ${p10_20}\nLucro maior que 20%: ${p20}\n\nValor total de compra: ${sum(buy_price)}\nValor total de venda: ${sum(sell_price)}\nLucro total: ${sum(profit)}`
+
+
+    result.innerText = t;
+</script>

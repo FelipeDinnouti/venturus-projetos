@@ -4,36 +4,37 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Número Primo</h2>
+    <h2 class="center_title">Professores</h2>
     <h3 class="center_title">Atividade 1</h3>
-    <br />
-    <form>
-        Número
-        <input id="input_1" />
-
-        <br />
-        <button id="button" type="button">Calcule</button>
-    </form>
+    <br>
     <p id="result"></p>
 </body>
 
 <script type="text/javascript">
-    var a;
+    let t = ""
 
-    const input1 = document.getElementById("input_1");
-    const button = document.getElementById("button");
-    const result = document.getElementById("result");
+    const n = 2;
+    const professores = []
+    const hora_aula = []
+    const valor_hora_aula = []
+    const salario = []
 
-    button.onclick = function () {
-        n = parseInt(input1.value);
-        for (var i = 2; i < n; i++) {
-            var remainder = n % i;
-            //  console.log("i: " + i + ": " + remainder);
-            if (remainder == 0 && isNaN(remainder) == false) {
-                result.innerText = "Não Primo";
-                return;
-            }
+    let maior = 0;
+
+    for (let i = 0; i<n; i++) {
+        professores[i] = prompt("Nome do professor: ")
+        hora_aula[i] = +prompt("Quantidade de Hora/Aula: ")
+        valor_hora_aula[i] = +prompt("Valor da Hora/Aula: ")
+        salario[i] = hora_aula[i]*valor_hora_aula[i]
+        t += `Nome: ${professores[i]}\nSalário: ${salario[i]}\n\n`
+        if (i==0) {
+            maior = i
+        } else if (salario[maior]<salario) {
+            maior = i // Índice do salário
         }
-        result.innerText = "Primo";
-    };
+    }
+  
+    t += `\nProfessor com maior salário: ${professores[maior]}\nSalário: ${salario[maior]}`
+    
+    result.innerText = t;
 </script>

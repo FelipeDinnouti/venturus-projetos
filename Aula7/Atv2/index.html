@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Exemplos</h2>
-    <h3 class="center_title">Selection Sort</h3>
+    <h2 class="center_title">Crescente e Decrescente</h2>
+    <h3 class="center_title">Atividade 2</h3>
     <br />
   
     <p id="result"></p>
@@ -15,12 +15,18 @@
     function rand(range) {
         return Math.floor(Math.random()*range);
     }
+    function reverse(v) {
+        let z = []
+        for (let i = 0; i<v.length; i++) {
+            z[i] = v[v.length-i-1]
+        }
+        return z
+    }
     function selectionSort(v) {
         for (let i = 0; i<v.length; i++)  {
 
             let m = i
             for (let k = i; k<v.length; k++) {
-                console.log(`${k} ${v[m]} ${v[k]}`)
                 if (v[m] > v[k]) {
                     m = k
                 }
@@ -35,12 +41,16 @@
         return v 
     }
 
-    const n = 10
-    const v = [5,4,3,2,1]
+    const n = 8
+    const v = []
 
     for (let i = 0; i<n;i++) {
-      v[i] = rand(50)
+      v[i] = +prompt(`[${i}]: `)
     }
 
-    result.innerText = selectionSort(v).toString();
+    let sorted = selectionSort(v)
+    let reversed = reverse(sorted)
+
+    result.innerText = "Ordenado crescente: " + sorted.toString();
+    result.innerText += "\nOrdenado decrescente: "+reversed.toString()
 </script>

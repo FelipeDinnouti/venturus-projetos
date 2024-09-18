@@ -4,36 +4,42 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Número Primo</h2>
+    <h2 class="center_title">Crescente 10</h2>
     <h3 class="center_title">Atividade 1</h3>
     <br />
-    <form>
-        Número
-        <input id="input_1" />
-
-        <br />
-        <button id="button" type="button">Calcule</button>
-    </form>
+  
     <p id="result"></p>
 </body>
 
 <script type="text/javascript">
-    var a;
+    function rand(range) {
+        return Math.floor(Math.random()*range);
+    }
+    function selectionSort(v) {
+        for (let i = 0; i<v.length; i++)  {
 
-    const input1 = document.getElementById("input_1");
-    const button = document.getElementById("button");
-    const result = document.getElementById("result");
+            let m = i
+            for (let k = i; k<v.length; k++) {
+                if (v[m] > v[k]) {
+                    m = k
+                }
+            }
 
-    button.onclick = function () {
-        n = parseInt(input1.value);
-        for (var i = 2; i < n; i++) {
-            var remainder = n % i;
-            //  console.log("i: " + i + ": " + remainder);
-            if (remainder == 0 && isNaN(remainder) == false) {
-                result.innerText = "Não Primo";
-                return;
+            if (m != i) {
+                v[m] = v[m] ^ v[i]
+                v[i] = v[m] ^ v[i]
+                v[m] = v[m] ^ v[i]
             }
         }
-        result.innerText = "Primo";
-    };
+        return v 
+    }
+
+    const n = 10
+    const v = []
+
+    for (let i = 0; i<n;i++) {
+      v[i] = +prompt(n)
+    }
+
+    result.innerText = selectionSort(v).toString();
 </script>

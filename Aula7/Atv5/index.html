@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Exemplos</h2>
-    <h3 class="center_title">Selection Sort</h3>
+    <h2 class="center_title">Números Aleatórios Parte 2</h2>
+    <h3 class="center_title">Atividade 5</h3>
     <br />
   
     <p id="result"></p>
@@ -35,11 +35,11 @@
         return v 
     }
 
-    const n = 10
+    const n = 7
     const v = [5,4,3,2,1]
 
     for (let i = 0; i<n;i++) {
-      v[i] = rand(50)
+      v[i] = rand(400)-200
     }
 
     result.innerText = selectionSort(v).toString();

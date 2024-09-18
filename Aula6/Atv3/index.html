@@ -1,0 +1,53 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Altura</h2>
+    <h3 class="center_title">Atividade 3</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    function getHighest(arr) {
+        let highest = arr[0]
+        for (let i = 0; i<arr.length; i++) {
+            if (highest<arr[i]) {
+                highest = arr[i]
+            }
+        }
+        
+        return highest
+    }
+    function average(arr) {
+        let sum = 0;
+        for (let i = 0; i<arr.length; i++) {
+            sum += arr[i]   
+        }
+        return sum/arr.length
+    }
+
+
+    let t = ""
+
+    const n = 4
+    const men = []
+    const women = []
+
+    for (let i = 0; i<n; i++) {
+        let gender = prompt("Sexo (M ou F): ")
+        if (gender == "M") {
+            men.push(+prompt("Altura: "))
+        } else if (gender == "F") {
+            women.push(+prompt("Altura: "))
+        }
+    }
+
+
+
+    t = `Maior mulher: ${getHighest(women)}cm\nMaior homem: ${getHighest(women)}cm\nMédia Mulheres: ${average(women)}cm\n Média Homens: ${average(men)}cm`
+
+    result.innerText = t;
+</script>
