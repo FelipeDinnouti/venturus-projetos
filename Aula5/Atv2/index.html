@@ -1,0 +1,28 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Times de futebol</h2>
+    <h3 class="center_title">Atividade 2</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    const teams = []
+
+    let text = ""
+    let n = 4 // Can only be even lol
+
+    for (let i = 0; i<n; i++) {
+        teams[i] = prompt("Nome do time " + i)
+    }
+    
+    for (let i = 0; i<(n/2); i++) {
+        text += `Partida ${i}: ${teams[i]} vs ${teams[i+(n/2)]}\n`
+    }
+    
+    result.innerText = text;
+</script>

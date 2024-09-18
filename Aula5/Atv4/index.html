@@ -1,0 +1,51 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Matriz2</h2>
+    <h3 class="center_title">Atividade 4</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    function printMatrix(m) {
+        let t = ""
+        for (let i = 0; i<m.length; i++) {
+            row = m[i]
+            console.log(row)
+            t += row + "\n"
+        }
+        return t
+    }
+
+    var rows = 3;
+    var columns = 4;
+    const matrix = new Array(rows)
+    for (let i = 0; i<rows; i++) {
+        matrix[i] = new Array(columns)
+    }
+    let text = ""
+  
+    for (let i = 0; i<rows; i++) {
+        for (let k = 0; k<columns; k++) {
+            matrix[i][k] = +prompt(`Insira o numero da posição [${i}][${k}] (linhas e colunas): `)
+        }
+    }
+
+    original = printMatrix(matrix)
+
+    for (let i = 0; i<rows; i++) {
+        for (let k = 0; k<columns; k++) {
+            if (matrix[i][k] < 0) {
+                matrix[i][k] = 0
+            }
+        }
+    }
+
+    text = `Original:\n${original}\nNova:\n${printMatrix(matrix)}`
+
+    result.innerText = text;
+</script>

@@ -4,36 +4,41 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Número Primo</h2>
+    <h2 class="center_title">Alunos</h2>
     <h3 class="center_title">Atividade 1</h3>
-    <br />
-    <form>
-        Número
-        <input id="input_1" />
-
-        <br />
-        <button id="button" type="button">Calcule</button>
-    </form>
+    <br>
     <p id="result"></p>
 </body>
 
 <script type="text/javascript">
-    var a;
+    const names = []
+    const grades = []
+    const averages = []
+    let text = ""
+    let n = 2
 
-    const input1 = document.getElementById("input_1");
-    const button = document.getElementById("button");
-    const result = document.getElementById("result");
+    for (let i = 0; i<n; i++) {
+        grades[i] = []
+        names[i] = prompt("Nome do aluno")   
+        grades[i][0] = +prompt("Nota da prova 1: ")
+        grades[i][1] = +prompt("Nota da prova 2: ")
+    }
+  
+    let sum = 0;
 
-    button.onclick = function () {
-        n = parseInt(input1.value);
-        for (var i = 2; i < n; i++) {
-            var remainder = n % i;
-            //  console.log("i: " + i + ": " + remainder);
-            if (remainder == 0 && isNaN(remainder) == false) {
-                result.innerText = "Não Primo";
-                return;
-            }
+    for (let i = 0; i<n; i++) {
+        let average = (grades[i][0]+grades[i][1])/2
+        averages[i] = average
+        sum += average
+    }
+    let class_average = sum/n
+    text = "Média da sala: " + class_average + "\n"
+
+    for (let i = 0; i<n; i++) {
+        if (averages[i] > class_average) {
+            text += `${names[i]}: - acima da média da sala com média: ${averages[i]}`
         }
-        result.innerText = "Primo";
-    };
+    }
+
+    result.innerText = text;
 </script>

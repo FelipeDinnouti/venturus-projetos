@@ -1,0 +1,54 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Matriz</h2>
+    <h3 class="center_title">Atividade 3</h3>
+    <br>
+    <p id="result"></p>
+</body>
+
+<script type="text/javascript">
+    var rows = 3;
+    var columns = 3;
+    const matrix = new Array(rows)
+    for (let i = 0; i<rows; i++) {
+        matrix[i] = new Array(columns)
+    }
+    let text = ""
+  
+    for (let i = 0; i<rows; i++) {
+        for (let k = 0; k<columns; k++) {
+            matrix[i][k] = +prompt(`Insira o numero da posição [${i}][${k}] (linhas e colunas): `)
+        }
+    }
+
+    text = matrix + "\n";
+
+    let sum = 0;
+    for (let i = 0; i<rows; i++) {
+        for (let k = 0; k<columns; k++) {
+            console.log(`Soma ${sum} + ${matrix[i][k]} = ${sum+matrix[i][k]}`)
+            sum += matrix[i][k]
+        }
+    }
+    text += `Soma total: ${sum}\n`
+    sum = 0
+    for (let i = 0; i<rows; i++) {
+        sum += matrix[2][i]
+    }
+    text += `Soma da linha 3: ${sum}\n`
+    sum = 0
+    for (let i = 0; i<rows; i++) {
+        sum += matrix[i][1]
+    }
+    text += `Soma da coluna 2: ${sum}\n`
+    sum = 0
+    for (let i = 0; i<rows; i++) {
+        sum += matrix[i][i]
+    }
+    text += `Soma da diagonal principal: ${sum}\n`
+    result.innerText = text;
+</script>
