@@ -1,0 +1,34 @@
+<meta charset="UTF-8" />
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2 class="center_title">Salário</h2>
+    <h3 class="center_title">Atividade 5</h3>
+    <p id="inner_text"></p>
+</body>
+
+<script type="text/javascript">
+    const text = document.getElementById("inner_text")
+
+    let t = ""
+
+    let salario = 2_000
+    let aumento = 0.015
+
+
+    // Em 2019 o salário aumenta em 1,5%
+    salario *= 1+aumento
+    t += `2019: R$${salario.toFixed(2)}\n`
+
+    // A partir de 2020 os aumentos salariais aumentaram em 200%
+    for (let i = 2020; i<=2023; i++) {
+        aumento *= 2 // Aumenta em 2 vezes o próprio aumento
+        salario *= 1+aumento // 100% + aumento%
+        t += `${i}: R$${salario.toFixed(2)}\n`
+    }
+
+
+   text.innerText = t
+</script>
