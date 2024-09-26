@@ -4,36 +4,124 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2 class="center_title">Número Primo</h2>
-    <h3 class="center_title">Atividade 1</h3>
+    <h2 class="center_title">Jogo da Velha</h2>
+    <h3 class="center_title">Projeto Prático Final</h3>
     <br />
-    <form>
+    <form onkeypress="return event.keyCode != 13">
         Número
         <input id="input_1" />
 
         <br />
-        <button id="button" type="button">Calcule</button>
+        <button id="button" type="button">Jogue</button>
     </form>
-    <p id="result"></p>
+    <p id="turno"></p>
+    <p id="result" style="font-size: 50;"></p>
 </body>
 
 <script type="text/javascript">
+    function isNumber(value) {
+      return typeof value === 'number';
+    }
+
+    function create_game_string(game_matrix) {
+        return `${game_matrix[0]} | ${game_matrix[1]} | ${game_matrix[2]}\n${game_matrix[3]} | ${game_matrix[4]} | ${game_matrix[5]}\n${game_matrix[6]} | ${game_matrix[7]} | ${game_matrix[8]}\n`
+    }
+    var current_game = [1,2,3,4,5,6,7,8,9]
+    var current_turn = "X"
+    const default_game = current_game
+
     var a;
+
+    function evaluate(game, c) {
+        console.log(c)
+
+        // Diagonals
+        if ((game[0]==c) && (game[4]==c) && (game[8]==c)) {
+            console.log("d1")
+            return true // true is win
+        }
+        if ((game[2]==c) && (game[4]==c) && (game[7]==c)) {
+            console.log(`${game[2]} ${game[4]} ${game[7]}`)
+            return true
+        }
+
+        // Lines
+        if ((game[0]==c) && (game[1]==c) && (game[2]==c)) {
+            console.log("l1")
+            return true
+        }
+        if ((game[3]==c) && (game[4]==c) && (game[5]==c)) {
+            console.log("l2")
+            return true
+        }
+        if ((game[6]==c) && (game[7]==c) && (game[8]==c)) {
+            console.log("l3")
+            return true
+        }
+
+        // Columns
+        if ((game[0]==c) && (game[3]==c) && (game[6]==c)) {
+            console.log("c1")
+            return true
+        }
+        if ((game[1]==c) && (game[4]==c) && (game[7]==c)) {
+            console.log("c2")
+            return true
+        }
+        if ((game[2]==c) && (game[5]==c) && (game[8]==c)) {
+            console.log("c3")
+            return true
+        }
+    }
+
+    function hasEnded(game) {
+        // Check for any game endings conditions, be it a draw or win
+        if (evaluate(game, "X") == true) { // X has won
+            return ("X")
+        } else if (evaluate(game, "O") == true) {
+            return "O"
+        }
+        
+        return false
+    }
 
     const input1 = document.getElementById("input_1");
     const button = document.getElementById("button");
     const result = document.getElementById("result");
+    const turno = document.getElementById("turno");
+
+
+    result.innerText = create_game_string(default_game)
+    turno.innerText = current_turn
+
 
     button.onclick = function () {
         n = parseInt(input1.value);
-        for (var i = 2; i < n; i++) {
-            var remainder = n % i;
-            //  console.log("i: " + i + ": " + remainder);
-            if (remainder == 0 && isNaN(remainder) == false) {
-                result.innerText = "Não Primo";
-                return;
+        if (n<=9 && n>=1) {
+            if (!isNumber(current_game[n-1])) {
+                return
+            } 
+
+            current_game[n-1] = current_turn
+            if (current_turn == "X") {
+                current_turn = "O"
+            } else {
+                current_turn = "X"
             }
+        } else {
+            return
         }
-        result.innerText = "Primo";
+
+        game_result = hasEnded(current_game) 
+        console.log(game_result)
+
+        if (game_result != false) {
+            alert(`Vitória do ${game_result}`)
+            current_game = default_game
+            current_turn = "X"
+        }
+
+        turno.innerText = current_turn
+        result.innerText = create_game_string(current_game);
     };
 </script>
