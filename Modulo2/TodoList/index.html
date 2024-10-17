@@ -1,50 +1,56 @@
-<!doctype html>
-
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Todo List</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Todo List</title>
+</head>
+<body>
     <div class="center">
-        <h1 class="text_center">Afazeres</h1>
-        <br />
-        <div class="add_task">
-            <input type="text" class="center_input" id="task_name" />
-            <button type="button" id="add_button">+</button>
+        <h1>Todo List</h1>
+        <br>
+
+        <div class="input">
+            <input type="text" id="task_name_input">
+            <button type="button" id="button">+</button>
         </div>
-        <ul id="task_list">
+        <ul class="task_list" id="task_list">
             <li class="task">
-                <input type="checkbox" class="task_checkbox" />
-                <p class="task_description">Lorem Ipsum Description</p>
+                <input type = "checkbox" class="task_checkbox">
+                <p class="task_description">Descrição Daora</p>
             </li>
         </ul>
     </div>
-    <script>
-        const task_list = document.getElementById("task_list");
-        const add_task_button = document.getElementById("add_button");
-        const input = document.getElementById("task_name");
+</body>
 
-        function create_task_object(text) {
-            const task = document.createElement("li");
-            const checkbox = document.createElement("input");
-            const p = document.createElement("p");
-            checkbox.type = "checkbox";
-            checkbox.className = "task_checkbox";
+<script>
+    const task_list = document.getElementById("task_list");
+    const add_button = document.getElementById("button");
+    const task_name_input = document.getElementById("task_name_input");
 
-            p.innerText = text;
-            p.className = "task_description";
+    function create_task_object(text) {
+        const task_object = document.createElement("li");
+        const checkbox = document.createElement("input");
+        const p = document.createElement("p");
 
-            task.className = "task";
+        checkbox.type = "checkbox";
+        checkbox.className = "task_checkbox";
 
-            task.appendChild(checkbox);
-            task.appendChild(p);
+        p.className = "task_description";
+        p.innerText = text;
 
-            task_list.appendChild(task);
-        }
+        task_object.className = "task";
 
-        add_task_button.onclick = function () {
-            create_task_object(input.value);
-        };
-    </script>
+        task_object.appendChild(checkbox);
+        task_object.appendChild(p);
+
+        task_list.appendChild(task_object);
+    }
+
+    add_button.onclick = function() {
+        create_task_object(task_name_input.value);
+    }
+</script>
+
 </html>

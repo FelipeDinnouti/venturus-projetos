@@ -1,0 +1,16 @@
+.center {
+    margin: 10px auto 10px auto;
+    width: 20%;
+    text-align: center;
+}
+
+.task {     
+    text-align: left;
+}
+.task_description {
+    display: inline-block;
+}
+.task_checkbox {
+    display: inline-block;
+    margin-right: 20px;
+}
