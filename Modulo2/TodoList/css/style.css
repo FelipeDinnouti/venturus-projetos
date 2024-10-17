@@ -1,0 +1,35 @@
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.center_input {
+    width: 30%;
+    display: inline-block;
+}
+.text_center {
+    text-align: center;
+}
+#add_button {
+    margin-left: 0px;
+}
+
+.center_input {
+    width: 50%;
+    margin: 0px;
+}
+
+.add_task {
+    display: flex;
+    justify-content: center;
+}
+
+.task {
+    margin: 10px auto 10px auto;
+    display: flex;
+    justify-content: left;
+}
+
+.task_description {
+    margin-left: 2%;
+}
